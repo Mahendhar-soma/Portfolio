@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Magnetic } from "@/components/shared/Magnetic";
 import { Typewriter } from "@/components/shared/Typewriter";
 import { ParticleField } from "@/components/effects/ParticleField";
-import { GradientSphere } from "@/components/effects/GradientSphere";
+import { TechScene3DLazy } from "@/components/effects/TechScene3DLazy";
 import { GithubIcon, LinkedinIcon } from "@/components/shared/BrandIcons";
 
 type IconComponent = ComponentType<{ className?: string }>;
@@ -176,7 +176,7 @@ export function HeroSection() {
           transition={{ delay: 0.5, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="absolute inset-8 rounded-full bg-primary/20 blur-3xl" />
-          <GradientSphere className="relative h-full w-full" />
+          <TechScene3DLazy className="relative h-full w-full" />
         </motion.div>
       </div>
 

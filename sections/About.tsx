@@ -83,14 +83,20 @@ export function AboutSection() {
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/15 text-accent">
                   <GraduationCap className="h-5 w-5" />
                 </span>
-                <div>
-                  <p className="font-display font-semibold">
+                <div className="min-w-0">
+                  <p className="text-xs font-medium tracking-wider text-accent uppercase">
+                    Education
+                  </p>
+                  <p className="mt-1 font-display font-semibold leading-snug">
                     {siteConfig.education.degree}
                   </p>
-                  <p className="text-sm text-muted">
-                    {siteConfig.education.school} · {siteConfig.education.year}
+                  <p className="mt-1 text-sm text-muted">
+                    {siteConfig.education.school}
                   </p>
-                  <p className="mt-1 text-xs text-muted">
+                  <p className="mt-0.5 text-xs text-muted">
+                    Graduated {siteConfig.education.period}
+                  </p>
+                  <p className="mt-2 text-xs text-muted">
                     Languages: {siteConfig.languages.join(" · ")}
                   </p>
                 </div>

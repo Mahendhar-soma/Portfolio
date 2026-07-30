@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { skillCategories } from "@/data/portfolio";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { AnimateIn } from "@/components/shared/AnimateIn";
+import { TechOrbit } from "@/components/effects/TechOrbit";
 import { cn } from "@/lib/utils";
 
 export function SkillsSection() {
@@ -14,10 +15,12 @@ export function SkillsSection() {
   return (
     <section
       id="skills"
-      className="section-padding relative"
+      className="section-padding relative overflow-hidden"
       aria-labelledby="skills-heading"
     >
-      <div className="container-premium">
+      <TechOrbit className="opacity-30" />
+
+      <div className="container-premium relative z-10">
         <AnimateIn>
           <SectionHeading
             eyebrow="Skills"

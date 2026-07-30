@@ -23,11 +23,12 @@ export const siteConfig = {
   resumeUrl: "/Mahendharsoma-Resume.docx",
   location: "Mahabubabad, India",
   workLocation: "Hyderabad, India",
-  languages: ["English", "Telugu — Native"],
+  languages: ["English", "Telugu (Native)"],
   education: {
     degree: "B.Tech in Electronics and Communication Engineering",
     school: "SSJ Engineering College",
-    year: "06/2014",
+    year: "2014",
+    period: "June 2014",
   },
 };
 
