@@ -1,12 +1,10 @@
 "use client";
 
-import type { ComponentType } from "react";
 import { motion } from "framer-motion";
-import { Mail, Download, ArrowRight } from "lucide-react";
+import { Download, ArrowRight } from "lucide-react";
 import {
   heroSpecializations,
   siteConfig,
-  socialLinks,
   floatingTechIcons,
 } from "@/data/portfolio";
 import { Button } from "@/components/ui/button";
@@ -14,16 +12,6 @@ import { Magnetic } from "@/components/shared/Magnetic";
 import { Typewriter } from "@/components/shared/Typewriter";
 import { ParticleField } from "@/components/effects/ParticleField";
 import { TechScene3DLazy } from "@/components/effects/TechScene3DLazy";
-import { GithubIcon, LinkedinIcon } from "@/components/shared/BrandIcons";
-
-type IconComponent = ComponentType<{ className?: string }>;
-
-const iconMap: Record<string, IconComponent> = {
-  github: GithubIcon,
-  linkedin: LinkedinIcon,
-  email: Mail,
-  twitter: Mail,
-};
 
 export function HeroSection() {
   return (
@@ -142,30 +130,6 @@ export function HeroSection() {
                 </a>
               </Button>
             </Magnetic>
-          </motion.div>
-
-          <motion.div
-            className="mt-8 flex items-center gap-3"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-          >
-            {socialLinks.map((link) => {
-              const Icon = iconMap[link.icon];
-              return (
-                <Magnetic key={link.name} strength={0.35}>
-                  <a
-                    href={link.href}
-                    target={link.icon === "email" ? undefined : "_blank"}
-                    rel="noopener noreferrer"
-                    aria-label={link.name}
-                    className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-muted transition-all hover:border-primary/40 hover:text-foreground hover:shadow-[0_0_24px_rgba(99,102,241,0.3)]"
-                  >
-                    <Icon className="h-4 w-4" />
-                  </a>
-                </Magnetic>
-              );
-            })}
           </motion.div>
         </div>
 
