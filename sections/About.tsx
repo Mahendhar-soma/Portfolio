@@ -74,11 +74,7 @@ export function AboutSection() {
           <div>
             <AnimateIn type="fadeRight">
               <p className="text-muted leading-relaxed md:text-lg">
-                {siteConfig.description} Capable of building modern{" "}
-                <strong className="text-foreground">Next.js + MySQL</strong>{" "}
-                applications and creating{" "}
-                <strong className="text-foreground">AI-assisted solutions</strong>{" "}
-                for faster development, automation, and smarter workflows.
+                {siteConfig.description}
               </p>
             </AnimateIn>
 

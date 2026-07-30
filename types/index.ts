@@ -31,6 +31,11 @@ export interface SkillCategory {
   color: string;
 }
 
+export interface ExperienceImpact {
+  value: string;
+  label: string;
+}
+
 export interface Experience {
   id: string;
   company: string;
@@ -40,6 +45,8 @@ export interface Experience {
   description: string;
   achievements: string[];
   technologies: string[];
+  impacts?: ExperienceImpact[];
+  current?: boolean;
 }
 
 export interface Project {

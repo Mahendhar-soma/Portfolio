@@ -16,18 +16,18 @@ export const siteConfig = {
   role: "Full Stack Web Developer",
   tagline: "CodeIgniter 4 · Next.js · MySQL · AI-Powered Apps",
   description:
-    "Full Stack Web Developer with 8+ years of experience building scalable business applications using PHP, CodeIgniter 4, Next.js, JavaScript, and MySQL. Delivered ERP, SaaS, CMS, and custom platforms across education, transport, hospitality, and operations.",
+    "Full Stack Web Developer with 8+ years of experience building scalable business applications using PHP, CodeIgniter 4, Next.js, JavaScript, and MySQL. Delivered ERP, SaaS, CMS, and custom platforms across education, transport, hospitality, and operations. Capable of building modern Next.js + MySQL applications and creating AI-assisted solutions for faster development, automation, and smarter workflows. Strong ownership from requirements through secure production deployment on Linux/cPanel with Git.",
   url: "https://mahendhar.dev",
   email: "mahendharsoma@gmail.com",
   phone: "+91 9010398886",
   resumeUrl: "/Mahendharsoma-Resume.docx",
   location: "Mahabubabad, India",
   workLocation: "Hyderabad, India",
-  languages: ["English", "Telugu (Native)"],
+  languages: ["English", "Telugu — Native"],
   education: {
     degree: "B.Tech in Electronics and Communication Engineering",
     school: "SSJ Engineering College",
-    year: "2014",
+    year: "06/2014",
   },
 };
 
@@ -187,19 +187,27 @@ export const experiences: Experience[] = [
     id: "exp-1",
     company: "Innisoft Pvt Ltd",
     role: "Software Engineer",
-    duration: "Aug 2018 — Present",
+    duration: "08/2018 — Current",
     location: "Hyderabad, India",
+    current: true,
     description:
       "Architecting and delivering enterprise PHP/CodeIgniter platforms across education, transport, inventory, hospitality, and HR — with secure production ownership on Linux/cPanel and Git.",
+    impacts: [
+      { value: "6+", label: "Enterprise platforms" },
+      { value: "99.5%+", label: "Uptime" },
+      { value: "~45%", label: "Faster reports" },
+      { value: "10K+", label: "Daily transactions" },
+    ],
     achievements: [
-      "Architected and delivered 6+ enterprise PHP/CodeIgniter platforms with 99.5%+ uptime",
-      "Designed and optimized MySQL schemas and indexed queries, reducing average report load time by ~45%",
-      "Built secure REST APIs for mobile and third-party integrations enabling real-time sync for 10,000+ daily transactions",
-      "Implemented Payment Gateway Integration and GST-compliant SaaS invoicing with multi-tenant RBAC",
-      "Developed reusable jQuery/Bootstrap UI components and AJAX workflows, cutting frontend delivery time by ~30%",
-      "Built and maintained multiple CMS websites on CodeIgniter 4 and MySQL with ongoing production support",
-      "Developing modern full-stack apps with Next.js and MySQL, leveraging AI tools to ship features faster",
-      "Hardened security with validation, RBAC, and session management; mentored juniors on PHP, Git, and code reviews",
+      "Architected and delivered 6+ enterprise PHP/CodeIgniter platforms serving education, transport, inventory, hospitality, and HR operations with 99.5%+ uptime.",
+      "Designed and optimized MySQL schemas and indexed queries, reducing average report load time by ~45% across ERP and inventory modules.",
+      "Built secure REST APIs for mobile and third-party integrations, enabling real-time data sync for 10,000+ daily transactions.",
+      "Implemented Payment Gateway Integration and GST-compliant SaaS invoicing with multi-tenant RBAC, improving online collection and billing accuracy.",
+      "Developed reusable jQuery/Bootstrap UI components and AJAX workflows, cutting frontend delivery time for new modules by ~30%.",
+      "Built and maintained multiple CMS websites on CodeIgniter 4 and MySQL — content admin, dynamic pages, and ongoing production support.",
+      "Developing modern full-stack applications with Next.js and MySQL, and leveraging AI tools to design, build, and ship features faster.",
+      "Hardened security with validation, RBAC, and session management across multi-tenant products; owned Linux/cPanel and Git-based releases.",
+      "Mentored juniors on PHP, Git, and code reviews; maintained production systems with fewer deployment defects.",
     ],
     technologies: [
       "PHP",
@@ -207,8 +215,14 @@ export const experiences: Experience[] = [
       "MySQL",
       "Next.js",
       "JavaScript",
+      "jQuery",
+      "Bootstrap",
       "REST APIs",
       "Firebase",
+      "Payment Gateway",
+      "GST Invoicing",
+      "cPanel",
+      "Git",
     ],
   },
 ];
@@ -218,7 +232,7 @@ export const projects: Project[] = [
     id: "proj-1",
     title: "RAOS School ERP",
     description:
-      "Multi-campus School ERP: admissions, academics, fees, hostel, GPS transport, RFID/biometric & payroll.",
+      "Multi-campus School ERP: admission, academics, term fees (OTP concessions), finance, inventory, hostel, GPS transport, RFID/biometric, payroll, branch reports.",
     longDescription:
       "Multi-campus School ERP covering admission, academics, term fees (OTP concessions), finance, inventory, hostel, GPS transport, RFID/biometric, payroll, and branch reports — a centralized operations platform for schools.",
     image: "/images/projects/school.svg",
@@ -242,7 +256,7 @@ export const projects: Project[] = [
     id: "proj-2",
     title: "GST Invoice Management System",
     description:
-      "Multi-tenant GST SaaS with auto CGST/SGST/IGST, FY numbering, PDF export, and RBAC.",
+      "Multi-tenant GST invoicing with auto CGST/SGST/IGST, FY numbers, transactional save, PDF export, and RBAC.",
     longDescription:
       "Multi-tenant GST invoicing with automatic CGST/SGST/IGST calculations, financial year invoice numbering, transactional saves, PDF export, REST API integration, and role-based access control.",
     image: "/images/projects/invoice.svg",
@@ -265,7 +279,7 @@ export const projects: Project[] = [
     id: "proj-3",
     title: "Infowealth — Hostel Discovery",
     description:
-      "Hostel discovery with OTP auth, geo/filter search, SMS leads, plus admin CMS & analytics.",
+      "Hostel discovery: OTP auth, device binding, geo/filter search, SMS leads, favorites; admin for providers, listings, CMS, and analytics.",
     longDescription:
       "Hostel discovery app & admin: OTP authentication, device binding, geo/filter search, SMS lead generation, and favorites — with an admin panel for providers, listings, CMS, and analytics.",
     image: "/images/projects/hostel.svg",
@@ -289,7 +303,7 @@ export const projects: Project[] = [
     id: "proj-4",
     title: "Hotel Management ERP + Guest Portal",
     description:
-      "Multi-hotel ERP with bookings, KOT, housekeeping, GST billing, and OTP/QR guest portal.",
+      "Multi-hotel ERP (rooms, bookings, food/KOT, housekeeping, laundry, SOS, GST billing) plus guest portal with OTP/QR login and FCM alerts.",
     longDescription:
       "Multi-hotel ERP covering rooms, bookings, food/KOT, housekeeping, laundry, SOS, and GST billing — plus a guest mobile portal with OTP/QR login and Firebase Cloud Messaging alerts.",
     image: "/images/projects/hotel.svg",
@@ -333,7 +347,7 @@ export const projects: Project[] = [
     id: "proj-6",
     title: "Motor Transport Management System",
     description:
-      "Fleet/workshop/inventory: vehicles, barcode parts, job cards, fuel, inspections & reports.",
+      "Fleet/Workshop/Inventory: vehicle masters, barcode spare parts, lubricants, job cards, allotment, fuel, inspections, gate pass, Excel/PDF reports.",
     longDescription:
       "Fleet, workshop, and inventory system covering vehicle masters, barcode spare parts, lubricants, job cards, allotment, fuel, inspections, gate pass, and Excel/PDF reports.",
     image: "/images/projects/inventory.svg",
@@ -355,7 +369,7 @@ export const projects: Project[] = [
     id: "proj-7",
     title: "CMS Websites (Build & Maintain)",
     description:
-      "Multiple CMS sites on CodeIgniter 4 — content admin, dynamic pages, media & hosting support.",
+      "Built and maintained multiple CMS websites on CodeIgniter 4 and MySQL — admin content, dynamic pages, media, and production/hosting support.",
     longDescription:
       "Built and maintained multiple CMS websites on CodeIgniter 4 and MySQL — admin content management, dynamic pages, media handling, and ongoing production/hosting support on cPanel.",
     image: "/images/projects/chatbot.svg",
