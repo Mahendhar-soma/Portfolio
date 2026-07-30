@@ -44,16 +44,16 @@ export const navItems: NavItem[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  {
-    name: "GitHub",
-    href: "https://github.com/Mahendhar-soma",
-    icon: "github",
-  },
-  {
-    name: "LinkedIn",
-    href: "https://www.linkedin.com/in/mahendarreddy-soma-1571a791/",
-    icon: "linkedin",
-  },
+  // {
+  //   name: "GitHub",
+  //   href: "https://github.com/Mahendhar-soma",
+  //   icon: "github",
+  // },
+  // {
+  //   name: "LinkedIn",
+  //   href: "https://www.linkedin.com/in/mahendarreddy-soma-1571a791/",
+  //   icon: "linkedin",
+  // },
   {
     name: "Email",
     href: "mailto:mahendharsoma@gmail.com",

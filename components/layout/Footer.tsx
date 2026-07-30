@@ -1,19 +1,7 @@
 "use client";
 
-import { Heart, Mail } from "lucide-react";
-import type { ComponentType } from "react";
-import { navItems, siteConfig, socialLinks } from "@/data/portfolio";
+import { navItems, siteConfig } from "@/data/portfolio";
 import { Magnetic } from "@/components/shared/Magnetic";
-import { GithubIcon, LinkedinIcon } from "@/components/shared/BrandIcons";
-
-type IconComponent = ComponentType<{ className?: string }>;
-
-const iconMap: Record<string, IconComponent> = {
-  github: GithubIcon,
-  linkedin: LinkedinIcon,
-  email: Mail,
-  twitter: Mail,
-};
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -57,27 +45,10 @@ export function Footer() {
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground">
               Connect
             </h3>
-            <div className="flex gap-3">
-              {socialLinks.map((link) => {
-                const Icon = iconMap[link.icon];
-                return (
-                  <Magnetic key={link.name} strength={0.3}>
-                    <a
-                      href={link.href}
-                      target={link.icon === "email" ? undefined : "_blank"}
-                      rel="noopener noreferrer"
-                      aria-label={link.name}
-                      className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-muted transition-all hover:border-primary/40 hover:text-foreground hover:shadow-[0_0_20px_rgba(99,102,241,0.25)]"
-                    >
-                      <Icon className="h-4 w-4" />
-                    </a>
-                  </Magnetic>
-                );
-              })}
-            </div>
+            {/* Social icons (GitHub / LinkedIn / Email) — hidden for now */}
             <a
               href={`mailto:${siteConfig.email}`}
-              className="mt-4 inline-block text-sm text-muted hover:text-secondary transition-colors"
+              className="inline-block text-sm text-muted hover:text-secondary transition-colors"
             >
               {siteConfig.email}
             </a>
