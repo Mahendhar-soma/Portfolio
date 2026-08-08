@@ -32,6 +32,15 @@ export function Navbar() {
     document.documentElement.classList.toggle("light", theme === "light");
   }, [theme]);
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [isMobileMenuOpen]);
+
   const scrollTo = (href: string) => {
     setMobileMenuOpen(false);
     const id = href.replace("#", "");
@@ -46,12 +55,15 @@ export function Navbar() {
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-          scrolled ? "glass-strong py-3 shadow-lg shadow-black/20" : "bg-transparent py-5"
+          scrolled
+            ? "glass-strong py-2.5 shadow-lg shadow-black/20 sm:py-3"
+            : "bg-transparent py-3.5 sm:py-5"
         )}
       >
         <nav
-          className="container-premium flex items-center justify-between px-5 md:px-8"
+          className="container-premium flex items-center justify-between px-4 sm:px-5 md:px-8"
           aria-label="Primary"
+          style={{ paddingTop: "env(safe-area-inset-top)" }}
         >
           <Magnetic strength={0.2}>
             <a
@@ -142,7 +154,7 @@ export function Navbar() {
               aria-hidden
             />
             <motion.aside
-              className="fixed right-0 top-0 z-50 flex h-full w-[min(100%,20rem)] flex-col glass-strong p-6 lg:hidden"
+              className="fixed right-0 top-0 z-50 flex h-[100dvh] w-[min(100%,20rem)] flex-col glass-strong p-5 pt-[max(1.25rem,env(safe-area-inset-top))] sm:p-6 lg:hidden"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}

@@ -32,11 +32,11 @@ export function ExperienceSection() {
                 </div>
 
                 <AnimateIn delay={0.08 * index} type="fadeLeft">
-                  <article className="glass rounded-2xl p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_28px_rgba(99,102,241,0.15)] md:p-8">
-                    <div className="flex flex-wrap items-start justify-between gap-3">
-                      <div>
+                  <article className="glass rounded-2xl p-4 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_28px_rgba(99,102,241,0.15)] sm:p-6 md:p-8">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between">
+                      <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-2">
-                          <h3 className="font-display text-lg font-bold md:text-xl">
+                          <h3 className="font-display text-base font-bold sm:text-lg md:text-xl">
                             {exp.role}
                           </h3>
                           {exp.current && (
@@ -45,13 +45,13 @@ export function ExperienceSection() {
                             </span>
                           )}
                         </div>
-                        <p className="mt-1 text-secondary">{exp.company}</p>
+                        <p className="mt-1 text-sm text-secondary sm:text-base">{exp.company}</p>
                       </div>
-                      <div className="space-y-1 text-sm text-muted md:text-right">
+                      <div className="space-y-1 text-xs text-muted sm:text-right sm:text-sm">
                         <p className="font-medium text-foreground/80">
                           {exp.duration}
                         </p>
-                        <p className="flex items-center gap-1.5 md:justify-end">
+                        <p className="flex items-center gap-1.5 sm:justify-end">
                           <MapPin className="h-3.5 w-3.5 shrink-0" />
                           {exp.location}
                         </p>
@@ -63,16 +63,16 @@ export function ExperienceSection() {
                     </p>
 
                     {exp.impacts && exp.impacts.length > 0 && (
-                      <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                      <div className="mt-5 grid grid-cols-2 gap-2 sm:gap-3 sm:grid-cols-4">
                         {exp.impacts.map((impact) => (
                           <div
                             key={impact.label}
-                            className="rounded-xl border border-white/10 bg-white/[0.03] px-3 py-3 text-center"
+                            className="rounded-xl border border-white/10 bg-white/[0.03] px-2 py-2.5 text-center sm:px-3 sm:py-3"
                           >
-                            <p className="font-display text-lg font-bold text-gradient">
+                            <p className="font-display text-base font-bold text-gradient sm:text-lg">
                               {impact.value}
                             </p>
-                            <p className="mt-0.5 text-[11px] text-muted">
+                            <p className="mt-0.5 text-[10px] leading-tight text-muted sm:text-[11px]">
                               {impact.label}
                             </p>
                           </div>
@@ -84,10 +84,10 @@ export function ExperienceSection() {
                       {exp.achievements.map((a) => (
                         <li
                           key={a}
-                          className="flex gap-2.5 text-sm leading-relaxed text-muted"
+                          className="flex gap-2.5 text-xs leading-relaxed text-muted sm:text-sm"
                         >
                           <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                          {a}
+                          <span className="min-w-0 break-words">{a}</span>
                         </li>
                       ))}
                     </ul>
@@ -96,7 +96,7 @@ export function ExperienceSection() {
                       {exp.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-muted"
+                          className="rounded-lg border border-white/10 bg-white/5 px-2 py-1 text-[11px] text-muted sm:px-2.5 sm:text-xs"
                         >
                           {tech}
                         </span>
@@ -113,13 +113,13 @@ export function ExperienceSection() {
               </div>
 
               <AnimateIn delay={0.12} type="fadeLeft">
-                <article className="glass rounded-2xl p-6 transition-all duration-300 hover:border-secondary/40 hover:shadow-[0_0_28px_rgba(6,182,212,0.12)]">
-                  <div className="flex flex-wrap items-start justify-between gap-3">
+                <article className="glass rounded-2xl p-4 transition-all duration-300 hover:border-secondary/40 hover:shadow-[0_0_28px_rgba(6,182,212,0.12)] sm:p-6">
+                  <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-3">
                     <div className="min-w-0 flex-1">
                       <p className="text-xs font-medium tracking-widest text-secondary uppercase">
                         Education
                       </p>
-                      <h3 className="mt-1 font-display text-lg font-bold leading-snug">
+                      <h3 className="mt-1 font-display text-base font-bold leading-snug sm:text-lg">
                         {siteConfig.education.degree}
                       </h3>
                       <p className="mt-2 text-sm text-muted">

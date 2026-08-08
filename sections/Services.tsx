@@ -40,17 +40,17 @@ export function ServicesSection() {
           />
         </AnimateIn>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
           {services.map((service, i) => {
             const Icon = iconMap[service.icon] ?? Globe;
             return (
               <AnimateIn key={service.id} delay={0.06 * i} type="scale">
-                <article className="group relative h-full overflow-hidden rounded-2xl glass p-6 transition-all duration-300 hover:-translate-y-1 hover:border-secondary/40 hover:shadow-[0_0_32px_rgba(6,182,212,0.15)]">
+                <article className="group relative h-full overflow-hidden rounded-2xl glass p-5 transition-all duration-300 hover:-translate-y-1 hover:border-secondary/40 hover:shadow-[0_0_32px_rgba(6,182,212,0.15)] sm:p-6">
                   <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-primary/10 blur-2xl transition-opacity group-hover:opacity-100 opacity-0" />
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                    <Icon className="h-6 w-6" />
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 sm:h-12 sm:w-12">
+                    <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
-                  <h3 className="font-display text-lg font-semibold">
+                  <h3 className="font-display text-base font-semibold sm:text-lg">
                     {service.title}
                   </h3>
                   <p className="mt-2 text-sm text-muted leading-relaxed">

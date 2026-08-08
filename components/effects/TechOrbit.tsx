@@ -26,7 +26,7 @@ export function TechOrbit({ className }: { className?: string }) {
       style={{ perspective: "900px" }}
     >
       <motion.div
-        className="relative h-[280px] w-[280px] md:h-[360px] md:w-[360px]"
+        className="relative h-[200px] w-[200px] md:h-[360px] md:w-[360px]"
         style={{ transformStyle: "preserve-3d" }}
         animate={{ rotateY: 360, rotateX: 12 }}
         transition={{ duration: 36, repeat: Infinity, ease: "linear" }}

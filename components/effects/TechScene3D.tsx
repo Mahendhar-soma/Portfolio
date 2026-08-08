@@ -208,13 +208,14 @@ function OrbitPaths() {
   );
 }
 
-function SceneCameraRig() {
+function SceneCameraRig({ simplified = false }: { simplified?: boolean }) {
   const group = useRef<THREE.Group>(null);
+  const sats = simplified ? SATELLITES.slice(0, 4) : SATELLITES;
 
   useFrame((state) => {
     if (!group.current) return;
-    const x = state.pointer.x * 0.4;
-    const y = state.pointer.y * 0.25;
+    const x = state.pointer.x * (simplified ? 0.2 : 0.4);
+    const y = state.pointer.y * (simplified ? 0.12 : 0.25);
     group.current.rotation.y = THREE.MathUtils.lerp(
       group.current.rotation.y,
       x,
@@ -231,14 +232,14 @@ function SceneCameraRig() {
     <group ref={group}>
       <CrystalCore />
       <GyroRings />
-      <OrbitPaths />
-      {SATELLITES.map((sat) => (
+      {!simplified && <OrbitPaths />}
+      {sats.map((sat) => (
         <OrbitingSatellite key={sat.label} sat={sat} />
       ))}
       <Sparkles
-        count={55}
+        count={simplified ? 24 : 55}
         scale={5.5}
-        size={2.2}
+        size={simplified ? 1.6 : 2.2}
         speed={0.45}
         opacity={0.55}
         color="#A5B4FC"
@@ -280,14 +281,18 @@ export function TechScene3D({ className }: { className?: string }) {
       <div className="absolute inset-[20%] rounded-full bg-secondary/15 blur-2xl" />
 
       <Canvas
-        dpr={isMobile ? [1, 1.25] : [1, 1.75]}
-        camera={{ position: [0, 0.35, 5.6], fov: 40 }}
-        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+        dpr={isMobile ? [1, 1.15] : [1, 1.75]}
+        camera={{ position: [0, 0.35, isMobile ? 6.2 : 5.6], fov: isMobile ? 42 : 40 }}
+        gl={{
+          antialias: !isMobile,
+          alpha: true,
+          powerPreference: isMobile ? "low-power" : "high-performance",
+        }}
         style={{ background: "transparent" }}
       >
         <Suspense fallback={null}>
           <SceneLights />
-          <SceneCameraRig />
+          <SceneCameraRig simplified={isMobile} />
         </Suspense>
       </Canvas>
     </div>

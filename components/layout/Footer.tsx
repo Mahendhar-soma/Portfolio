@@ -7,9 +7,9 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative border-t border-white/5 pt-16 pb-8">
-      <div className="container-premium px-5 md:px-8">
-        <div className="grid gap-10 md:grid-cols-3">
+    <footer className="relative border-t border-white/5 pt-12 pb-8 sm:pt-16">
+      <div className="container-premium px-4 sm:px-5 md:px-8">
+        <div className="grid gap-8 sm:gap-10 md:grid-cols-3">
           <div>
             <Magnetic strength={0.15}>
               <a href="#home" className="font-display text-2xl font-bold">
@@ -18,8 +18,8 @@ export function Footer() {
               </a>
             </Magnetic>
             <p className="mt-3 max-w-xs text-sm text-muted leading-relaxed">
-            Available for freelance and full-time opportunities. Based in{" "}
-            {siteConfig.location}.
+              Open to full-time opportunities. Based in{" "}
+              {siteConfig.location}.
             </p>
           </div>
 
@@ -32,7 +32,7 @@ export function Footer() {
                 <li key={item.id}>
                   <a
                     href={item.href}
-                    className="text-sm text-muted transition-colors hover:text-foreground"
+                    className="inline-block py-1 text-sm text-muted transition-colors hover:text-foreground"
                   >
                     {item.label}
                   </a>
@@ -45,10 +45,9 @@ export function Footer() {
             <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-foreground">
               Connect
             </h3>
-            {/* Social icons (GitHub / LinkedIn / Email) — hidden for now */}
             <a
               href={`mailto:${siteConfig.email}`}
-              className="inline-block text-sm text-muted hover:text-secondary transition-colors"
+              className="inline-block break-all text-sm text-muted hover:text-secondary transition-colors"
             >
               {siteConfig.email}
             </a>
@@ -61,11 +60,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/5 pt-6 text-sm text-muted sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-white/5 pt-6 text-center text-sm text-muted sm:mt-12 sm:flex-row sm:text-left">
           <p>© {year} {siteConfig.name}. All rights reserved.</p>
-          {/* <p className="flex items-center gap-1">
-            Built with <Heart className="h-3.5 w-3.5 text-accent" aria-hidden /> and Next.js
-          </p> */}
         </div>
       </div>
     </footer>

@@ -7,13 +7,14 @@ import {
   type HTMLAttributes,
 } from "react";
 import { cn } from "@/lib/utils";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface MagneticProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   strength?: number;
 }
 
-/** Subtle magnetic pull toward cursor on hover */
+/** Subtle magnetic pull toward cursor — disabled on touch devices */
 export function Magnetic({
   children,
   strength = 0.35,
@@ -21,8 +22,10 @@ export function Magnetic({
   ...props
 }: MagneticProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const isCoarse = useMediaQuery("(pointer: coarse)");
 
   const handleMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (isCoarse) return;
     const el = ref.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();

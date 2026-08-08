@@ -19,7 +19,7 @@ export function ScrollToTop() {
     <AnimatePresence>
       {visible && (
         <motion.div
-          className="fixed bottom-6 right-6 z-50"
+          className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-4 z-50 sm:bottom-6 sm:right-6"
           initial={{ opacity: 0, scale: 0.8, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 10 }}

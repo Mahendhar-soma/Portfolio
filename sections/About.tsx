@@ -42,13 +42,13 @@ export function AboutSection() {
           <AnimateIn type="fadeLeft">
             <div className="relative mx-auto w-full max-w-md">
               <div className="glow-border overflow-hidden rounded-3xl p-1">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[1.35rem] bg-surface">
+                <div className="relative aspect-[4/5] max-h-[28rem] overflow-hidden rounded-[1.35rem] bg-surface sm:max-h-none">
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-surface to-secondary/20" />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-                    <div className="mb-6 flex h-32 w-32 items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-primary to-secondary font-display text-4xl font-bold shadow-[0_0_40px_rgba(99,102,241,0.4)]">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center p-5 text-center sm:p-8">
+                    <div className="mb-4 flex h-24 w-24 items-center justify-center rounded-full border border-white/20 bg-gradient-to-br from-primary to-secondary font-display text-3xl font-bold shadow-[0_0_40px_rgba(99,102,241,0.4)] sm:mb-6 sm:h-32 sm:w-32 sm:text-4xl">
                       MS
                     </div>
-                    <h3 className="font-display text-2xl font-bold">
+                    <h3 className="font-display text-xl font-bold sm:text-2xl">
                       {siteConfig.name}
                     </h3>
                     <p className="mt-1 text-secondary">{siteConfig.role}</p>
@@ -73,7 +73,7 @@ export function AboutSection() {
 
           <div>
             <AnimateIn type="fadeRight">
-              <p className="text-muted leading-relaxed md:text-lg">
+              <p className="text-sm text-muted leading-relaxed sm:text-base md:text-lg">
                 {siteConfig.description}
               </p>
             </AnimateIn>
@@ -122,17 +122,17 @@ export function AboutSection() {
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-4 md:grid-cols-4 md:gap-6">
           {aboutStats.map((stat, i) => (
             <AnimateIn key={stat.label} delay={0.08 * i}>
-              <div className="glass rounded-2xl p-6 text-center transition-all hover:border-secondary/30">
-                <p className="font-display text-3xl font-bold text-gradient md:text-4xl">
+              <div className="glass rounded-2xl p-3 text-center transition-all hover:border-secondary/30 sm:p-6">
+                <p className="font-display text-2xl font-bold text-gradient sm:text-3xl md:text-4xl">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </p>
-                <p className="mt-2 text-sm font-medium text-foreground">
+                <p className="mt-1 text-xs font-medium text-foreground sm:mt-2 sm:text-sm">
                   {stat.label}
                 </p>
-                <p className="mt-1 text-xs text-muted">{stat.description}</p>
+                <p className="mt-1 hidden text-xs text-muted sm:block">{stat.description}</p>
               </div>
             </AnimateIn>
           ))}

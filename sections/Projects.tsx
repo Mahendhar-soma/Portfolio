@@ -48,14 +48,18 @@ export function ProjectsSection() {
         </AnimateIn>
 
         <AnimateIn delay={0.1}>
-          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex flex-wrap gap-2" role="group" aria-label="Filter projects">
+          <div className="mb-6 flex flex-col gap-4 sm:mb-8 sm:flex-row sm:items-center sm:justify-between">
+            <div
+              className="touch-scroll-x sm:flex-wrap sm:overflow-visible"
+              role="group"
+              aria-label="Filter projects"
+            >
               {categories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setFilter(cat)}
                   className={cn(
-                    "rounded-xl px-3.5 py-1.5 text-sm transition-all",
+                    "shrink-0 rounded-xl px-3.5 py-1.5 text-sm transition-all",
                     filter === cat
                       ? "bg-primary/20 border border-primary/40 text-foreground"
                       : "border border-white/10 text-muted hover:text-foreground"
@@ -78,7 +82,7 @@ export function ProjectsSection() {
           </div>
         </AnimateIn>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           <AnimatePresence mode="popLayout">
             {filtered.map((project, i) => (
               <motion.article
@@ -89,8 +93,8 @@ export function ProjectsSection() {
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ delay: i * 0.04 }}
                 className="group relative overflow-hidden rounded-2xl glass transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-[0_0_40px_rgba(99,102,241,0.2)]"
-                style={{ transformStyle: "preserve-3d" }}
                 onMouseMove={(e) => {
+                  if (window.matchMedia("(pointer: coarse)").matches) return;
                   const el = e.currentTarget;
                   const rect = el.getBoundingClientRect();
                   const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -143,7 +147,7 @@ export function ProjectsSection() {
                     </div>
                   </div>
                 </button>
-                <div className="flex gap-2 px-5 pb-5">
+                {/* <div className="flex gap-2 px-5 pb-5">
                   {project.github && (
                     <Button variant="outline" size="sm" asChild>
                       <a
@@ -170,7 +174,7 @@ export function ProjectsSection() {
                       </a>
                     </Button>
                   )}
-                </div>
+                </div> */}
               </motion.article>
             ))}
           </AnimatePresence>
@@ -185,7 +189,7 @@ export function ProjectsSection() {
       <AnimatePresence>
         {selected && (
           <motion.div
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+            className="fixed inset-0 z-[100] flex items-end justify-center p-0 sm:items-center sm:p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -199,20 +203,20 @@ export function ProjectsSection() {
               role="dialog"
               aria-modal="true"
               aria-labelledby="project-modal-title"
-              className="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-white/10 bg-surface p-6 shadow-2xl md:p-8"
+              className="relative z-10 max-h-[92dvh] w-full max-w-2xl overflow-y-auto rounded-t-3xl border border-white/10 bg-surface p-5 shadow-2xl sm:rounded-3xl sm:p-6 md:p-8"
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
             >
               <button
                 onClick={() => setSelected(null)}
-                className="absolute right-4 top-4 rounded-lg p-2 text-muted hover:bg-white/5 hover:text-foreground"
+                className="absolute right-3 top-3 rounded-lg p-2 text-muted hover:bg-white/5 hover:text-foreground sm:right-4 sm:top-4"
                 aria-label="Close project details"
               >
                 <X className="h-5 w-5" />
               </button>
               <div
-                className="mb-6 aspect-video overflow-hidden rounded-2xl"
+                className="mb-5 aspect-video overflow-hidden rounded-2xl sm:mb-6"
                 style={{
                   background: `linear-gradient(135deg, rgba(99,102,241,0.4), rgba(6,182,212,0.25))`,
                 }}
@@ -222,34 +226,34 @@ export function ProjectsSection() {
               <p className="text-sm text-secondary">{selected.category}</p>
               <h3
                 id="project-modal-title"
-                className="mt-1 font-display text-2xl font-bold"
+                className="mt-1 pr-8 font-display text-xl font-bold sm:text-2xl"
               >
                 {selected.title}
               </h3>
-              <p className="mt-4 text-muted leading-relaxed">
+              <p className="mt-3 text-sm text-muted leading-relaxed sm:mt-4 sm:text-base">
                 {selected.longDescription}
               </p>
-              <div className="mt-6 flex flex-wrap gap-2">
+              <div className="mt-5 flex flex-wrap gap-2 sm:mt-6">
                 {selected.techStack.map((t) => (
                   <span
                     key={t}
-                    className="rounded-lg border border-white/10 bg-white/5 px-3 py-1 text-xs"
+                    className="rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] sm:px-3 sm:text-xs"
                   >
                     {t}
                   </span>
                 ))}
               </div>
-              <div className="mt-8 flex flex-wrap gap-3">
-                {selected.github && (
-                  <Button asChild>
-                    <a href={selected.github} target="_blank" rel="noopener noreferrer">
-                      <GithubIcon className="h-4 w-4" />
-                      View on GitHub
-                    </a>
-                  </Button>
-                )}
+              <div className="mt-6 flex flex-col gap-3 pb-[env(safe-area-inset-bottom)] sm:mt-8 sm:flex-row sm:flex-wrap">
+                {/* {selected.github && (
+                  // <Button className="w-full sm:w-auto" asChild>
+                  //   <a href={selected.github} target="_blank" rel="noopener noreferrer">
+                  //     <GithubIcon className="h-4 w-4" />
+                  //     View on GitHub
+                  //   </a>
+                  // </Button>
+                )} */}
                 {selected.liveDemo && (
-                  <Button variant="outline" asChild>
+                  <Button variant="outline" className="w-full sm:w-auto" asChild>
                     <a href={selected.liveDemo} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="h-4 w-4" />
                       Live Demo
@@ -278,8 +282,8 @@ function ProjectVisual({
     <div className="flex h-full w-full flex-col items-center justify-center p-6">
       <span
         className={cn(
-          "font-display font-bold text-white/90",
-          large ? "text-3xl" : "text-xl"
+          "font-display font-bold text-white/90 text-center px-2 break-words",
+          large ? "text-2xl sm:text-3xl" : "text-lg sm:text-xl"
         )}
       >
         {title.split(" ").slice(0, 2).join(" ")}

@@ -18,7 +18,7 @@ export function SkillsSection() {
       className="section-padding relative overflow-hidden"
       aria-labelledby="skills-heading"
     >
-      <TechOrbit className="opacity-30" />
+      <TechOrbit className="hidden opacity-30 sm:flex" />
 
       <div className="container-premium relative z-10">
         <AnimateIn>
@@ -32,7 +32,7 @@ export function SkillsSection() {
         {/* Category tabs */}
         <AnimateIn delay={0.1}>
           <div
-            className="mb-10 flex flex-wrap justify-center gap-2"
+            className="touch-scroll-x mb-8 justify-start sm:mb-10 sm:flex-wrap sm:justify-center sm:overflow-visible"
             role="tablist"
             aria-label="Skill categories"
           >
@@ -43,7 +43,7 @@ export function SkillsSection() {
                 aria-selected={active === i}
                 onClick={() => setActive(i)}
                 className={cn(
-                  "rounded-xl px-4 py-2 text-sm font-medium transition-all duration-300",
+                  "shrink-0 rounded-xl px-3.5 py-2 text-sm font-medium transition-all duration-300 sm:px-4",
                   active === i
                     ? "bg-primary/20 text-foreground shadow-[0_0_20px_rgba(99,102,241,0.25)] border border-primary/40"
                     : "border border-white/10 text-muted hover:border-white/20 hover:text-foreground"
@@ -60,7 +60,7 @@ export function SkillsSection() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3"
           role="tabpanel"
         >
           {category.skills.map((skill, i) => (
@@ -69,7 +69,7 @@ export function SkillsSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.05 }}
-              className="group glass rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_32px_rgba(99,102,241,0.2)]"
+              className="group glass rounded-2xl p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_32px_rgba(99,102,241,0.2)] sm:p-5"
             >
               <div className="mb-3 flex items-center justify-between">
                 <h3 className="font-display font-semibold">{skill.name}</h3>

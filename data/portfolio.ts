@@ -21,7 +21,7 @@ export const siteConfig = {
   email: "mahendharsoma@gmail.com",
   phone: "+91 9010398886",
   resumeUrl: "/Mahendharsoma-Resume.docx",
-  location: "Mahabubabad, India",
+  location: "Mahabubabad",
   workLocation: "Hyderabad, India",
   languages: ["English", "Telugu (Native)"],
   education: {
@@ -45,11 +45,11 @@ export const navItems: NavItem[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  // {
-  //   name: "GitHub",
-  //   href: "https://github.com/Mahendhar-soma",
-  //   icon: "github",
-  // },
+  {
+    name: "GitHub",
+    href: "https://github.com/Mahendhar-soma",
+    icon: "github",
+  },
   // {
   //   name: "LinkedIn",
   //   href: "https://www.linkedin.com/in/mahendarreddy-soma-1571a791/",
@@ -247,8 +247,7 @@ export const projects: Project[] = [
       "Bootstrap",
       "DataTables",
       "Firebase",
-      "SMS",
-      "RFID/Biometric",
+      "SMS"
     ],
     github: "https://github.com/Mahendhar-soma/School-ERP",
     featured: true,

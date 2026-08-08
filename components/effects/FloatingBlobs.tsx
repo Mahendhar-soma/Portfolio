@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 /** Ambient floating gradient blobs */
 export function FloatingBlobs() {
   return (
-    <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" aria-hidden>
+    <div className="pointer-events-none fixed inset-0 -z-10 hidden overflow-hidden sm:block" aria-hidden>
       <motion.div
         className="blob left-[-10%] top-[-5%] h-[420px] w-[420px] bg-primary"
         animate={{ x: [0, 40, 0], y: [0, 30, 0] }}

@@ -17,12 +17,12 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden pt-24 pb-16"
+      className="relative flex min-h-[100svh] items-center overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-16"
       aria-labelledby="hero-heading"
     >
-      <ParticleField className="absolute inset-0 h-full w-full opacity-70" />
+      <ParticleField className="absolute inset-0 h-full w-full opacity-50 sm:opacity-70" />
 
-      {/* Floating tech labels */}
+      {/* Floating tech labels — desktop only */}
       <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden>
         {floatingTechIcons.map((tech, i) => (
           <motion.span
@@ -45,10 +45,10 @@ export function HeroSection() {
         ))}
       </div>
 
-      <div className="container-premium relative z-10 grid items-center gap-12 px-5 md:px-8 lg:grid-cols-2">
-        <div>
+      <div className="container-premium relative z-10 grid w-full items-center gap-8 px-4 sm:gap-10 sm:px-5 md:gap-12 md:px-8 lg:grid-cols-2">
+        <div className="min-w-0 text-center lg:text-left">
           <motion.p
-            className="mb-4 text-sm font-medium tracking-widest uppercase text-secondary"
+            className="mb-3 text-xs font-medium tracking-widest uppercase text-secondary sm:mb-4 sm:text-sm"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -58,7 +58,7 @@ export function HeroSection() {
 
           <motion.h1
             id="hero-heading"
-            className="font-display text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+            className="font-display text-[2rem] font-bold leading-[1.15] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
@@ -68,7 +68,7 @@ export function HeroSection() {
           </motion.h1>
 
           <motion.p
-            className="mt-4 text-xl text-muted md:text-2xl"
+            className="mt-3 text-lg text-muted sm:mt-4 sm:text-xl md:text-2xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
@@ -77,7 +77,7 @@ export function HeroSection() {
           </motion.p>
 
           <motion.div
-            className="mt-6 flex flex-wrap items-center gap-2 text-base md:text-lg"
+            className="mt-4 flex flex-wrap items-center justify-center gap-2 text-sm sm:mt-6 sm:text-base md:text-lg lg:justify-start"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.65 }}
@@ -90,7 +90,7 @@ export function HeroSection() {
           </motion.div>
 
           <motion.p
-            className="mt-6 max-w-lg text-muted leading-relaxed"
+            className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-muted sm:mt-6 sm:text-base lg:mx-0"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.75 }}
@@ -99,14 +99,15 @@ export function HeroSection() {
           </motion.p>
 
           <motion.div
-            className="mt-8 flex flex-wrap gap-4"
+            className="mt-6 flex w-full flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.85 }}
           >
-            <Magnetic>
+            <Magnetic className="w-full sm:w-auto">
               <Button
                 size="lg"
+                className="w-full sm:w-auto"
                 onClick={() =>
                   document
                     .getElementById("contact")
@@ -118,8 +119,8 @@ export function HeroSection() {
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Magnetic>
-            <Magnetic>
-              <Button variant="outline" size="lg" asChild>
+            <Magnetic className="w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="w-full sm:w-auto" asChild>
                 <a
                   href={siteConfig.resumeUrl}
                   download="Mahendharsoma-Resume.docx"
@@ -134,7 +135,7 @@ export function HeroSection() {
         </div>
 
         <motion.div
-          className="relative mx-auto aspect-square w-full max-w-md lg:max-w-lg"
+          className="relative mx-auto aspect-square w-full max-w-[260px] sm:max-w-sm md:max-w-md lg:max-w-lg"
           initial={{ opacity: 0, scale: 0.85 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
@@ -145,7 +146,7 @@ export function HeroSection() {
       </div>
 
       <motion.div
-        className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
+        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 md:flex"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
