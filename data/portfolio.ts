@@ -186,7 +186,7 @@ export const skillCategories: SkillCategory[] = [
 export const experiences: Experience[] = [
   {
     id: "exp-1",
-    company: "Innisoft Pvt Ltd",
+    company: "Inrisoft Pvt Ltd",
     role: "Software Engineer",
     duration: "08/2018 — Current",
     location: "Hyderabad, India",
@@ -387,6 +387,34 @@ export const projects: Project[] = [
     github: "https://github.com/Mahendhar-soma",
     featured: false,
   },
+  {
+    id: "proj-8",
+    title: "MyVillageApp",
+    description:
+      "Telugu-first digital village platform for news, services, jobs, agriculture, schemes, maps, weather, and community engagement.",
+    longDescription:
+      "MyVillageApp is a Telugu-first digital village platform designed to connect villagers with local information, businesses, government schemes, agriculture resources, jobs, health and emergency details, issue reporting, posters, polls, notifications, and community updates. Built with a Service -> Repository architecture (Frontend -> API Routes -> Services -> Repositories -> MySQL), it includes separate user/admin authentication, RBAC, publishing workflows, audit logging, rate limiting, Google Maps and Places integration, Google Cloud Text-to-Speech, Open-Meteo weather data, and multi-village content scoping through village_id for regional scalability.",
+    image: "/images/projects/chatbot.svg",
+    category: "Platform",
+    techStack: [
+      "Next.js",
+      "React 19",
+      "Tailwind CSS",
+      "TypeScript",
+      "Next.js Route Handlers",
+      "MySQL / MariaDB",
+      "JWT",
+      "HTTP-only Cookies",
+      "Zod",
+      "Google Maps",
+      "Places API",
+      "Google Cloud TTS",
+      "Open-Meteo API",
+      "Sharp",
+      "RBAC",
+    ],
+    featured: true,
+  },
 ];
 
 export const services: Service[] = [
@@ -469,7 +497,7 @@ export const testimonials: Testimonial[] = [
     id: "t-4",
     name: "Rahul Verma",
     role: "Engineering Manager",
-    company: "Innisoft",
+    company: "Inrisoft",
     content:
       "He owns complex ERPs from schema to deployment — REST APIs, MySQL performance, and mentoring juniors. Our go-to full-stack engineer.",
     avatar: "RV",
