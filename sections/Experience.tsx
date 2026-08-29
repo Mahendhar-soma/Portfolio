@@ -12,8 +12,9 @@ export function ExperienceSection() {
       className="section-padding relative"
       aria-labelledby="experience-heading"
     >
+      <div className="section-divider" aria-hidden />
       <div className="container-premium">
-        <AnimateIn>
+        <AnimateIn type="blurUp">
           <SectionHeading
             eyebrow="Experience"
             title="Where I've made an impact"
@@ -32,7 +33,7 @@ export function ExperienceSection() {
                 </div>
 
                 <AnimateIn delay={0.08 * index} type="fadeLeft">
-                  <article className="glass rounded-2xl p-4 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_28px_rgba(99,102,241,0.15)] sm:p-6 md:p-8">
+                  <article className="glass card-interactive rounded-2xl p-4 sm:p-6 md:p-8">
                     <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between">
                       <div className="min-w-0">
                         <div className="flex flex-wrap items-center gap-2">
@@ -113,7 +114,7 @@ export function ExperienceSection() {
               </div>
 
               <AnimateIn delay={0.12} type="fadeLeft">
-                <article className="glass rounded-2xl p-4 transition-all duration-300 hover:border-secondary/40 hover:shadow-[0_0_28px_rgba(6,182,212,0.12)] sm:p-6">
+                <article className="glass card-interactive rounded-2xl p-4 sm:p-6">
                   <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-3">
                     <div className="min-w-0 flex-1">
                       <p className="text-xs font-medium tracking-widest text-secondary uppercase">

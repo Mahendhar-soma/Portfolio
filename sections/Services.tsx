@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { services } from "@/data/portfolio";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { AnimateIn } from "@/components/shared/AnimateIn";
+import { AnimateIn, StaggerIn, StaggerItem } from "@/components/shared/AnimateIn";
 
 type IconComponent = ComponentType<{ className?: string }>;
 
@@ -31,8 +31,9 @@ export function ServicesSection() {
       className="section-padding relative"
       aria-labelledby="services-heading"
     >
+      <div className="section-divider" aria-hidden />
       <div className="container-premium">
-        <AnimateIn>
+        <AnimateIn type="blurUp">
           <SectionHeading
             eyebrow="Services"
             title="How I can help"
@@ -40,13 +41,13 @@ export function ServicesSection() {
           />
         </AnimateIn>
 
-        <div className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
-          {services.map((service, i) => {
+        <StaggerIn className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
+          {services.map((service) => {
             const Icon = iconMap[service.icon] ?? Globe;
             return (
-              <AnimateIn key={service.id} delay={0.06 * i} type="scale">
-                <article className="group relative h-full overflow-hidden rounded-2xl glass p-5 transition-all duration-300 hover:-translate-y-1 hover:border-secondary/40 hover:shadow-[0_0_32px_rgba(6,182,212,0.15)] sm:p-6">
-                  <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-primary/10 blur-2xl transition-opacity group-hover:opacity-100 opacity-0" />
+              <StaggerItem key={service.id}>
+                <article className="group relative h-full overflow-hidden rounded-2xl glass card-interactive shine p-5 sm:p-6">
+                  <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-primary/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-primary transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 sm:h-12 sm:w-12">
                     <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                   </div>
@@ -57,10 +58,10 @@ export function ServicesSection() {
                     {service.description}
                   </p>
                 </article>
-              </AnimateIn>
+              </StaggerItem>
             );
           })}
-        </div>
+        </StaggerIn>
       </div>
     </section>
   );

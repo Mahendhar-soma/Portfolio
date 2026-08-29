@@ -29,8 +29,9 @@ export function AboutSection() {
       className="section-padding relative"
       aria-labelledby="about-heading"
     >
+      <div className="section-divider" aria-hidden />
       <div className="container-premium">
-        <AnimateIn>
+        <AnimateIn type="blurUp">
           <SectionHeading
             eyebrow="About"
             title="Full-stack ownership, production focus"
@@ -108,8 +109,8 @@ export function AboutSection() {
                 const Icon = iconMap[item.icon] ?? Code2;
                 return (
                   <AnimateIn key={item.title} delay={0.1 * i} type="scale">
-                    <article className="group glass rounded-2xl p-5 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_rgba(99,102,241,0.15)]">
-                      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary transition-transform group-hover:scale-110">
+                    <article className="group glass card-interactive shine rounded-2xl p-5">
+                      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary transition-transform duration-300 group-hover:scale-110">
                         <Icon className="h-5 w-5" />
                       </div>
                       <h3 className="font-display font-semibold">{item.title}</h3>
@@ -125,7 +126,7 @@ export function AboutSection() {
         <div className="mt-10 grid grid-cols-2 gap-3 sm:mt-16 sm:gap-4 md:grid-cols-4 md:gap-6">
           {aboutStats.map((stat, i) => (
             <AnimateIn key={stat.label} delay={0.08 * i}>
-              <div className="glass rounded-2xl p-3 text-center transition-all hover:border-secondary/30 sm:p-6">
+              <div className="glass card-interactive rounded-2xl p-3 text-center sm:p-6">
                 <p className="font-display text-2xl font-bold text-gradient sm:text-3xl md:text-4xl">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </p>

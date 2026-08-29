@@ -13,7 +13,6 @@ import {
 import * as THREE from "three";
 import { cn } from "@/lib/utils";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import { GradientSphere } from "@/components/effects/GradientSphere";
 
 type Satellite = {
   label: string;
@@ -262,20 +261,17 @@ function SceneLights() {
 
 /** Hero 3D scene — crystal core + gyroscope rings + orbiting tech satellites */
 export function TechScene3D({ className }: { className?: string }) {
-  const isReduced = useMediaQuery("(prefers-reduced-motion: reduce)");
   const isMobile = useMediaQuery("(max-width: 768px)");
 
-  if (isReduced) {
-    return <GradientSphere className={className} />;
-  }
-
+  // Always mount the same shell; reduced-motion users get CSS-disabled motion globally.
+  // Avoid swapping GradientSphere vs Canvas during render (hydration / flicker).
   return (
     <div
       className={cn(
         "relative aspect-square w-full overflow-hidden",
         className
       )}
-      aria-hidden
+      aria-hidden="true"
     >
       <div className="absolute inset-[10%] rounded-full bg-primary/25 blur-3xl" />
       <div className="absolute inset-[20%] rounded-full bg-secondary/15 blur-2xl" />

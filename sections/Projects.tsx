@@ -38,12 +38,13 @@ export function ProjectsSection() {
       className="section-padding relative"
       aria-labelledby="projects-heading"
     >
+      <div className="section-divider" aria-hidden />
       <div className="container-premium">
-        <AnimateIn>
+        <AnimateIn type="blurUp">
           <SectionHeading
             eyebrow="Projects"
             title="Featured work"
-            description="Selected products spanning SaaS, ERP, e-commerce, and AI — each built for real users."
+            description="Selected products spanning SaaS, ERP, village platforms, AI tools, and monitoring — each built for real users."
           />
         </AnimateIn>
 
@@ -92,14 +93,14 @@ export function ProjectsSection() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ delay: i * 0.04 }}
-                className="group relative overflow-hidden rounded-2xl glass transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/40 hover:shadow-[0_0_40px_rgba(99,102,241,0.2)]"
+                className="group relative overflow-hidden rounded-2xl glass card-interactive shine"
                 onMouseMove={(e) => {
                   if (window.matchMedia("(pointer: coarse)").matches) return;
                   const el = e.currentTarget;
                   const rect = el.getBoundingClientRect();
                   const x = (e.clientX - rect.left) / rect.width - 0.5;
                   const y = (e.clientY - rect.top) / rect.height - 0.5;
-                  el.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateY(-6px)`;
+                  el.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-6px)`;
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = "";

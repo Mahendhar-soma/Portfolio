@@ -18,10 +18,11 @@ export function SkillsSection() {
       className="section-padding relative overflow-hidden"
       aria-labelledby="skills-heading"
     >
+      <div className="section-divider" aria-hidden />
       <TechOrbit className="hidden opacity-30 sm:flex" />
 
       <div className="container-premium relative z-10">
-        <AnimateIn>
+        <AnimateIn type="blurUp">
           <SectionHeading
             eyebrow="Skills"
             title="Tools of the craft"
@@ -69,7 +70,7 @@ export function SkillsSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.05 }}
-              className="group glass rounded-2xl p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_32px_rgba(99,102,241,0.2)] sm:p-5"
+              className="group glass card-interactive rounded-2xl p-4 sm:p-5"
             >
               <div className="mb-3 flex items-center justify-between">
                 <h3 className="font-display font-semibold">{skill.name}</h3>

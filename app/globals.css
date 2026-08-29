@@ -137,6 +137,11 @@ body {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease,
+    background 0.35s ease;
 }
 
 .glass-strong {
@@ -144,6 +149,55 @@ body {
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid var(--glass-border);
+}
+
+.card-interactive {
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.card-interactive:hover {
+  transform: translateY(-6px);
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 16px 48px rgba(99, 102, 241, 0.15);
+}
+
+@media (hover: none) {
+  .card-interactive:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 60%
+  );
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.shine:hover::after {
+  animation: shine-sweep 0.9s ease;
+}
+
+@keyframes shine-sweep {
+  to {
+    transform: translateX(120%);
+  }
 }
 
 .glow-border {
@@ -241,6 +295,7 @@ body {
 .section-padding {
   padding-block: clamp(3rem, 8vw, 8rem);
   padding-inline: clamp(1rem, 4vw, 2rem);
+  position: relative;
 }
 
 .container-premium {
@@ -248,6 +303,51 @@ body {
   max-width: 72rem;
   margin-inline: auto;
   min-width: 0;
+}
+
+.section-divider {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: min(12rem, 40%);
+  height: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(99, 102, 241, 0.55),
+    rgba(6, 182, 212, 0.45),
+    transparent
+  );
+  opacity: 0.7;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.animate-float {
+  animation: float-y 5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
 }
 
 /* Touch-friendly helpers */
@@ -292,5 +392,11 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .card-interactive:hover,
+  .shine:hover::after {
+    transform: none !important;
+    animation: none !important;
   }
 }

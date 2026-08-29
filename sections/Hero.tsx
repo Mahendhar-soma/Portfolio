@@ -140,7 +140,10 @@ export function HeroSection() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="absolute inset-8 rounded-full bg-primary/20 blur-3xl" />
+          <div
+            className="absolute inset-8 rounded-full bg-primary/20 blur-3xl animate-pulse-glow"
+            aria-hidden="true"
+          />
           <TechScene3DLazy className="relative h-full w-full" />
         </motion.div>
       </div>

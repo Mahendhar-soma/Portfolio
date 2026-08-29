@@ -134,12 +134,11 @@ export function ParticleField({ className }: { className?: string }) {
     };
   }, [isReduced]);
 
-  if (isReduced) return null;
-
+  // Always render the same canvas node for SSR/client match; skip drawing when reduced.
   return (
     <canvas
       ref={canvasRef}
-      aria-hidden
+      aria-hidden="true"
       className={className ?? "absolute inset-0 h-full w-full"}
     />
   );

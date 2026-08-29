@@ -16,8 +16,9 @@ export function ContactSection() {
       className="section-padding relative"
       aria-labelledby="contact-heading"
     >
+      <div className="section-divider" aria-hidden />
       <div className="container-premium">
-        <AnimateIn>
+        <AnimateIn type="blurUp">
           <SectionHeading
             eyebrow="Contact"
             title="Let's build something great"
@@ -25,9 +26,9 @@ export function ContactSection() {
           />
         </AnimateIn>
 
-        <AnimateIn type="fadeUp">
+        <AnimateIn type="scale" delay={0.1}>
           <div className="mx-auto max-w-xl">
-            <div className="glass rounded-3xl p-5 sm:p-6 md:p-8">
+            <div className="glass card-interactive rounded-3xl p-5 sm:p-6 md:p-8">
               <h3 className="font-display text-lg font-semibold sm:text-xl">Get in touch</h3>
               <ul className="mt-5 space-y-4 sm:mt-6">
                 <li className="flex items-start gap-3">
