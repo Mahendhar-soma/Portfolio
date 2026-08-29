@@ -415,6 +415,53 @@ export const projects: Project[] = [
     ],
     featured: true,
   },
+  {
+    id: "proj-9",
+    title: "Website Health Monitor",
+    description:
+      "SaaS dashboard for multi-client website monitoring — uptime, SSL/domain expiry, DNS, malware signals, broken links, alerts, and reports.",
+    longDescription:
+      "Website Health Monitor is a SaaS platform for businesses and agencies to monitor multiple client websites from one dashboard. It automates uptime and availability checks, response-time monitoring, SSL and domain expiry tracking, DNS record checks, malware/suspicious-change detection, broken-link scanning, alerts and email notifications, monitoring history and incident tracking, multi-client/multi-website management, RBAC, audit logs, CSV/Excel/PDF reporting, hosting charge and payment tracking, and scheduled cron-based health checks. Built with Next.js, React, Tailwind CSS, shadcn/ui, Next.js Server Actions & API Routes, MySQL (mysql2), JWT authentication, a Service + Repository architecture, and Nodemailer SMTP — following Client → Website → Automated Health Checks → History → Issue Detection → Alerts → Email → Reports.",
+    image: "/images/projects/chatbot.svg",
+    category: "SaaS",
+    techStack: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "MySQL",
+      "JWT",
+      "Server Actions",
+      "Cron Jobs",
+      "Nodemailer",
+      "RBAC",
+    ],
+    featured: true,
+  },
+  {
+    id: "proj-10",
+    title: "DevDoctor",
+    description:
+      "AI-powered developer troubleshooting platform — Error, API, SQL, Log, Website Health, Web Tester, Incidents, and Knowledge in one workflow.",
+    longDescription:
+      "DevDoctor brings developer troubleshooting into one place: paste an error, SQL query, API URL, log, or website URL, and the right “doctor” investigates, shows evidence, and recommends a clear next step. Current doctors include Error Doctor (stack-trace analysis), API Doctor (HTTP testing with SSRF protection), SQL Doctor (query review with optional read-only MySQL investigation), Website Health (SEO/security signals), Web Tester (Playwright crawl, screenshots, reports), Log Doctor (error grouping), Incidents (severity/status/timeline), AI Agent (guided multi-tool investigations), and Knowledge/Solutions (searchable past fixes). Built with a clean Controller → Service → Repository architecture in NestJS and Page → services → API in Next.js, using TypeScript, MySQL, JWT, React Query, Tailwind CSS, and Playwright — focused on Problem → Evidence → Diagnosis → Next Step → Solution.",
+    image: "/images/projects/chatbot.svg",
+    category: "SaaS",
+    techStack: [
+      "TypeScript",
+      "Next.js",
+      "NestJS",
+      "MySQL",
+      "JWT",
+      "React Query",
+      "Tailwind CSS",
+      "Playwright",
+      "AI Agent",
+    ],
+    featured: true,
+  },
+  
 ];
 
 export const services: Service[] = [
